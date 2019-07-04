@@ -82,15 +82,3 @@ class Net(nn.Module):
         
         # a modified x, having gone through all the layers of your model, should be returned
         return x
-
-    
-            x = self.drop1(self.pool1(F.elu(self.conv1(x))))
-        x = self.drop2(self.pool2(F.elu(self.conv2(x))))
-        x = self.drop3(self.pool3(F.elu(self.conv3(x))))
-        x = self.drop4(self.pool4(F.elu(self.conv4(x))))
-        
-        x = x.view(x.size(0), -1) # flatten
-        
-        x = self.drop5(F.elu(self.fc1(x)))
-        x = self.drop6(self.fc2(x))
-        x = self.fc3(x)
